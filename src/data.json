@@ -1,0 +1,20 @@
+{
+  "beginnen": {
+    "past": ["begon", "begonnen"],
+    "perfect": "",
+    "auxillary": ""
+  },
+  "begrijpen": {
+    "past": ["begreep", "begrepen"],
+    "perfect": "",
+    "auxillary": ""
+  },
+  "blijven": { "past": ["bleef", "bleven"], "perfect": "", "auxillary": "" },
+  "brengen": { "past": ["bracht", "brachten"], "perfect": "", "auxillary": "" },
+  "denken": { "past": ["dacht", "dachten"], "perfect": "", "auxillary": "" },
+  "drinken": { "past": ["dronk", "dronken"], "perfect": "", "auxillary": "" },
+  "doen": { "past": ["deed", "deden"], "perfect": "", "auxillary": "" },
+  "eten": { "past": ["at", "aten"], "perfect": "", "auxillary": "" },
+  "gaan": { "past": ["ging", "gingen"], "perfect": "", "auxillary": "" },
+  "hebben": { "past": ["had", "hadden"], "perfect": "", "auxillary": "" }
+}
