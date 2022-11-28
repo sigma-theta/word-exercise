@@ -31,7 +31,7 @@ function Main() {
 
   return (
     <>
-    <Dialog open={open} handleClose={handleClose} chosenVerb={chosenVerb} />
+    <Dialog open={open} handleClose={handleClose} chosenVerb={chosenVerb} data={data} setData={setData} />
     <Container sx={{ bgcolor: "teal", minHeight: "600px", p: 4, mt: 8 }}>
       <Typography variant="h3" component="h3" sx={{ color: "white", mb: 4 }}>
         {" "}
