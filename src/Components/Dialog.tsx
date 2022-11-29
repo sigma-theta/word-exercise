@@ -8,7 +8,7 @@ import {
   DialogContentText,
   DialogTitle,
   TextField,
-  Typography
+  Typography,
 } from "@mui/material";
 
 export default function AlertDialog({
@@ -16,41 +16,31 @@ export default function AlertDialog({
   handleClose,
   chosenVerb,
   data,
-  setData
+  setData,
 }: {
   open: boolean;
   handleClose: any;
   chosenVerb: string;
   data: any;
-  setData: any
+  setData: any;
 }) {
-
   const [sentence, setSentence] = React.useState("");
   const [warning, setWarning] = React.useState("");
 
-   const checkSentence = () => {
-
-    if (data.length) {
-      if (sentence.length > 5) { // eğer doğruysa. koşulu değiştir
-        // const whitespaced = sentence.split(" ");
-  
-        console.log(data)
+  const checkSentence = () => {
+    const whitespaced = sentence.replace(".", "").split(" ");
+    if (data.length > 1) {
+      if ((data.chosenVerb.past.includes(whitespaced[2])) || (data.chosenVerb.auxiliary.includes(whitespaced[2]) && whitespaced[-1] === data.chosenVerb.perfect)) {
+        // console.log(data);
         let copiedData = data;
-        delete copiedData.denken
-  
-        setData(copiedData)
+        delete copiedData.chosenVerb;
+        setData(copiedData);
         handleClose();
-  
-      } 
-      else {
-        setWarning("Try again")
+      } else {
+        setWarning("Probeer opnieuw");
       }
-    } else if (data.length == 1) {
-      alert("heyoo");
-    } else {
-      // biti
     }
-   }
+  };
 
   return (
     <div>
@@ -74,14 +64,14 @@ export default function AlertDialog({
             fullWidth
             variant="standard"
             value={sentence}
-            onChange={
-                (event)=>{setSentence(event.target.value)}
-            }
+            onChange={(event) => {
+              setSentence(event.target.value);
+            }}
           />
           <Typography>{warning}</Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={checkSentence}>Agree</Button>
+          <Button onClick={checkSentence}>Opslaan</Button>
         </DialogActions>
       </Dialog>
     </div>

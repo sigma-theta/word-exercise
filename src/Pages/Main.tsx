@@ -53,7 +53,7 @@ function Main() {
           sx={{ mt: 4, width: "50%" }}
           onClick={handleClick}
         >
-          Contained
+          Kies een woord
         </Button>
       </Box>
     </Container>
