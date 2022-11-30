@@ -30,10 +30,10 @@ export default function AlertDialog({
   const checkSentence = () => {
     const whitespaced = sentence.replace(".", "").split(" ");
     if (data.length > 1) {
-      if ((data.chosenVerb.past.includes(whitespaced[2])) || (data.chosenVerb.auxiliary.includes(whitespaced[2]) && whitespaced[-1] === data.chosenVerb.perfect)) {
+      if ((data.default[chosenVerb].past.includes(whitespaced[2])) || (data.default[chosenVerb].auxiliary.includes(whitespaced[2]) && whitespaced[-1] === data.default[chosenVerb].perfect)) {
         // console.log(data);
         let copiedData = data;
-        delete copiedData.chosenVerb;
+        delete copiedData.default[chosenVerb];
         setData(copiedData);
         handleClose();
       } else {
