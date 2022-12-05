@@ -29,14 +29,16 @@ export default function AlertDialog({
 
   const checkSentence = () => {
     const whitespaced = sentence.replace(".", "").split(" ");
-    if ((data.chosenVerb.past.includes(whitespaced[1])) || (data.chosenVerb.auxiliary.includes(whitespaced[1]) && whitespaced[-1] === data.chosenVerb.perfect)) {
+    if (data.length > 1) {
+      if ((data.default[chosenVerb].past.includes(whitespaced[2])) || (data.default[chosenVerb].auxiliary.includes(whitespaced[2]) && whitespaced[-1] === data.default[chosenVerb].perfect)) {
         // console.log(data);
-      let copiedData = data;
-      delete copiedData.chosenVerb;
-      setData(copiedData);
-      handleClose();
-    } else {
-      setWarning("Probeer opnieuw");
+        let copiedData = data;
+        delete copiedData.default[chosenVerb];
+        setData(copiedData);
+        handleClose();
+      } else {
+        setWarning("Probeer opnieuw");
+      }
     }
   };
 
