@@ -30,10 +30,10 @@ export default function AlertDialog({
 
   const checkSentence = () => {
     const trimmedSentence = sentence.trim();
-    const whitespaced = trimmedSentence.replace(".", "").split(" ");
+    const words = trimmedSentence.replace(".", "").split(" ");
     let valid: boolean = false;
 
-    if (whitespaced.length < 2) { // ileride whitespaced[1] diyoruz o yüzden bundan emin olmamız gerekiyor
+    if (words.length < 2) { // ileride words[1] diyoruz o yüzden bundan emin olmamız gerekiyor
       setWarning(errorMessage);
     } else {
       valid = true;
@@ -43,20 +43,17 @@ export default function AlertDialog({
       let success: boolean = false;
       const innerKeys = Object.keys(data[chosenVerb]) // past, perfect, auxillary
 
-      for (let x = 0; x < innerKeys.length; x ++) {
-        console.log(data[chosenVerb][innerKeys[x]])
-        if (data[chosenVerb][innerKeys[x]].includes(whitespaced[1])) {
-          success = true;
-          break
-        } else {
-          success = false;
-        }
+      if (data[chosenVerb][innerKeys[0]].includes(words[1]) || (data[chosenVerb][innerKeys[1]].includes(words[words.length-1]) && data[chosenVerb][innerKeys[2]].includes(words[1]))) {
+        success = true;
+      } else {
+        success = false;
       }
   
       if (success) {
         let copiedData = data;
         delete copiedData[chosenVerb];
         setData(copiedData);
+        setSentence("");
         handleClose();
       } else {
         setWarning(errorMessage);
