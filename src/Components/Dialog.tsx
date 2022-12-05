@@ -26,18 +26,43 @@ export default function AlertDialog({
 }) {
   const [sentence, setSentence] = React.useState("");
   const [warning, setWarning] = React.useState("");
+  const errorMessage = "Probeer opnieuw"
 
   const checkSentence = () => {
-    const whitespaced = sentence.replace(".", "").split(" ");
-      if ((data.default[chosenVerb].past.includes(whitespaced[1])) || (data.default[chosenVerb].auxiliary.includes(whitespaced[1]) && whitespaced[-1] === data.default[chosenVerb].perfect)) {
-        // console.log(data);
+    const trimmedSentence = sentence.trim();
+    const whitespaced = trimmedSentence.replace(".", "").split(" ");
+    let valid: boolean = false;
+
+    if (whitespaced.length < 2) { // ileride whitespaced[1] diyoruz o yüzden bundan emin olmamız gerekiyor
+      setWarning(errorMessage);
+    } else {
+      valid = true;
+    }
+
+    if (valid) {
+      let success: boolean = false;
+      const innerKeys = Object.keys(data[chosenVerb]) // past, perfect, auxillary
+
+      for (let x = 0; x < innerKeys.length; x ++) {
+        console.log(data[chosenVerb][innerKeys[x]])
+        if (data[chosenVerb][innerKeys[x]].includes(whitespaced[1])) {
+          success = true;
+          break
+        } else {
+          success = false;
+        }
+      }
+  
+      if (success) {
         let copiedData = data;
-        delete copiedData.default[chosenVerb];
+        delete copiedData[chosenVerb];
         setData(copiedData);
         handleClose();
       } else {
-        setWarning("Probeer opnieuw");
+        setWarning(errorMessage);
       }
+    }
+
   };
 
   return (

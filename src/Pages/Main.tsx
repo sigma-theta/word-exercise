@@ -31,7 +31,8 @@ function Main() {
 
   return (
     <>
-    <Dialog open={open} handleClose={handleClose} chosenVerb={chosenVerb} data={data} setData={setData} />
+    {/* eğer data varsa Dialog'u çağır */}
+    {data && <Dialog open={open} handleClose={handleClose} chosenVerb={chosenVerb} data={data} setData={setData} />}
     <Container sx={{ bgcolor: "teal", minHeight: "600px", p: 4, mt: 8 }}>
       <Typography variant="h3" component="h3" sx={{ color: "white", mb: 4 }}>
         {" "}
@@ -40,7 +41,7 @@ function Main() {
       <Grid container spacing={2} sx={{ justifyContent: "center" }}>
         {Object.keys(data).map((key, index) => {
           return (
-            <Grid item xs={3}>
+            <Grid item key={index} xs={3}>
               <Paper sx={{ p: 2 }}>{key}</Paper>
             </Grid>
           );
