@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.js": "/word-exercise/static/js/main.dd7ce312.js",
+    "main.js": "/word-exercise/static/js/main.e7858c7e.js",
     "static/js/468.b8ae4a4d.chunk.js": "/word-exercise/static/js/468.b8ae4a4d.chunk.js",
+    "static/media/thinkingface.png": "/word-exercise/static/media/thinkingface.69873e4333031a3244f6.png",
     "index.html": "/word-exercise/index.html",
-    "main.dd7ce312.js.map": "/word-exercise/static/js/main.dd7ce312.js.map"
+    "main.e7858c7e.js.map": "/word-exercise/static/js/main.e7858c7e.js.map"
   },
   "entrypoints": [
-    "static/js/main.dd7ce312.js"
+    "static/js/main.e7858c7e.js"
   ]
 }
