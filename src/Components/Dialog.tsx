@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import wrongImage from '../thinkingface.png'
 import {
   Button,
   Dialog,
@@ -84,6 +84,16 @@ export default function AlertDialog({
     }
   };
 
+  const WarningImage = () => {
+    if (warning==="") {
+      return null;
+    } else {
+      return (
+        <img src={wrongImage} width="100" height="100" alt=""/>
+      )
+    }
+  }
+
   return (
     <div>
       <Dialog
@@ -111,6 +121,7 @@ export default function AlertDialog({
             }}
           />
           <Typography>{warning}</Typography>
+          <WarningImage />
         </DialogContent>
         <DialogActions>
           <Button onClick={checkSentence}>Opslaan</Button>
