@@ -77,6 +77,7 @@ export default function AlertDialog({
         setData(copiedData);
         setSentence("");
         handleClose();
+        setWarning("")
       } else {
         setWarning(errorMessage);
       }

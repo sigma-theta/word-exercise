@@ -29,7 +29,8 @@ function Main() {
 
   };
 
-  return (
+  if (Object.keys(data).length) 
+  {return (
     <>
     {/* eğer data varsa Dialog'u çağır */}
     {data && <Dialog open={open} handleClose={handleClose} chosenVerb={chosenVerb} data={data} setData={setData} />}
@@ -59,7 +60,28 @@ function Main() {
       </Box>
     </Container>
     </>
-  );
+  );} else {
+    return (
+      <Container sx={{ bgcolor: "teal", minHeight: "600px", p: 4, mt: 8 }}>
+      <Typography variant="h3" component="h3" sx={{ color: "white", mb: 4 }} align="center">
+        {" "}
+        Goed gedaan!{" "}
+      </Typography>
+      <Box
+        component="img"
+        sx={{
+          height: 500,
+          width: 500
+        }}
+        src="https://stickerly.pstatic.net/sticker_pack/PC3No6nCVu59ELrFqXD05g/MOUI70/2/6a7cc0f8-ac62-4aa5-aa53-17b52b50f804.png"
+        alignItems="center"
+        justifyContent="center"
+        display="flex"
+        margin="auto"
+      />
+      </Container>
+    );
+  }
 }
 
 export default Main;
