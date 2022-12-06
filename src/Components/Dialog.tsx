@@ -26,14 +26,21 @@ export default function AlertDialog({
 }) {
   const [sentence, setSentence] = React.useState("");
   const [warning, setWarning] = React.useState("");
-  const errorMessage = "Probeer opnieuw"
+  const errorMessage = "Probeer opnieuw";
 
   const checkSentence = () => {
-    const trimmedSentence = sentence.trim();
-    const words = trimmedSentence.replace(".", "").split(" ");
+    let question: boolean = false;
+    const trimmedSentence = sentence.trim().toLowerCase();
+    if (trimmedSentence.includes("?")) {
+      question = true;
+    } else {
+      question = false;
+    }
+    const words = trimmedSentence.replace(".", "").replace("?", "").split(" ");
     let valid: boolean = false;
 
-    if (words.length < 2) { // ileride words[1] diyoruz o yüzden bundan emin olmamız gerekiyor
+    if (words.length < 2) {
+      // ileride words[1] diyoruz o yüzden bundan emin olmamız gerekiyor
       setWarning(errorMessage);
     } else {
       valid = true;
@@ -41,14 +48,29 @@ export default function AlertDialog({
 
     if (valid) {
       let success: boolean = false;
-      const innerKeys = Object.keys(data[chosenVerb]) // past, perfect, auxillary
-
-      if (data[chosenVerb][innerKeys[0]].includes(words[1]) || (data[chosenVerb][innerKeys[1]].includes(words[words.length-1]) && data[chosenVerb][innerKeys[2]].includes(words[1]))) {
-        success = true;
+      const innerKeys = Object.keys(data[chosenVerb]); // past, perfect, auxillary
+      if (!question) {
+        if (
+          data[chosenVerb][innerKeys[0]].includes(words[1]) ||
+          (data[chosenVerb][innerKeys[1]].includes(words[words.length - 1]) &&
+            data[chosenVerb][innerKeys[2]].includes(words[1]))
+        ) {
+          success = true;
+        } else {
+          success = false;
+        }
       } else {
-        success = false;
+        if (
+          data[chosenVerb][innerKeys[0]].includes(words[0]) ||
+          (data[chosenVerb][innerKeys[1]].includes(words[words.length - 1]) &&
+            data[chosenVerb][innerKeys[2]].includes(words[0]))
+        ) {
+          success = true;
+        } else {
+          success = false;
+        }
       }
-  
+
       if (success) {
         let copiedData = data;
         delete copiedData[chosenVerb];
@@ -59,7 +81,6 @@ export default function AlertDialog({
         setWarning(errorMessage);
       }
     }
-
   };
 
   return (
