@@ -18,12 +18,12 @@ function WordEntry() {
     }
 
     return isButton? (
+        <Paper variant='outlined'>{verb}</Paper>
+    ) : (
         <Paper variant='outlined'>
             <TextField value={verb} onChange={(event) => setVerb(event.target.value)} onKeyDown={handleEnter}></TextField>
             <Button onClick = {handleIsButton}></Button>
         </Paper>
-    ) : (
-        <Paper variant='outlined'>{verb}</Paper>
     )
 }
 
