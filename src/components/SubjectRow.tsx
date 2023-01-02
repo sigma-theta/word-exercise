@@ -20,6 +20,11 @@ function SubjectRow({
     setEditSubject(subject);
   };
 
+  /*const handleDeleteSubject = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setEditSubject(subject);
+    deleteSubject(editSubject);
+  }*/
+
   return editMode ? (
     <TableRow>
       <TextField
@@ -28,13 +33,13 @@ function SubjectRow({
           setUpdatedSubject(event.target.value);
         }}
       />
-      <Button onClick={updateSubject} />
+      <Button onClick={updateSubject}>✔️</Button>
+      <Button onClick={deleteSubject}>🗑️</Button>
     </TableRow>
   ) : (
     <TableRow>
       <Paper>{subject}</Paper>
       <Button onClick={handleEditButton}>✏️</Button>
-      <Button onClick={deleteSubject}>🗑️</Button>
     </TableRow>
   );
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Container, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import WordEntry from "../components/shared/WordEntry";
+import WordEntry from "../components/WordEntry";
 
 function MainPage() {
   return (
