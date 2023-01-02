@@ -1,0 +1,52 @@
+{
+  "beginnen": {
+    "past": ["begon", "begonnen"],
+    "perfect": ["begonnen"],
+    "auxillary": ["ben", "is", "zijn"]
+  },
+  "begrijpen": {
+    "past": ["begreep", "begrepen"],
+    "perfect": ["begrepen"],
+    "auxillary": ["heb", "heeft", "hebben"]
+  },
+  "blijven": {
+    "past": ["bleef", "bleven"],
+    "perfect": ["gebleven"],
+    "auxillary": ["ben", "is", "zijn"]
+  },
+  "brengen": {
+    "past": ["bracht", "brachten"],
+    "perfect": ["gebracht"],
+    "auxillary": ["heb", "heeft", "hebben"]
+  },
+  "denken": {
+    "past": ["dacht", "dachten"],
+    "perfect": ["gedacht"],
+    "auxillary": ["heb", "heeft", "hebben"]
+  },
+  "drinken": {
+    "past": ["dronk", "dronken"],
+    "perfect": ["gedronken"],
+    "auxillary": ["heb", "heeft", "hebben"]
+  },
+  "doen": {
+    "past": ["deed", "deden"],
+    "perfect": ["gedaan"],
+    "auxillary": ["heb", "heeft", "hebben"]
+  },
+  "eten": {
+    "past": ["at", "aten"],
+    "perfect": ["gegeten"],
+    "auxillary": ["heb", "heeft", "hebben"]
+  },
+  "gaan": {
+    "past": ["ging", "gingen"],
+    "perfect": ["gegaan"],
+    "auxillary": ["ben", "is", "zijn"]
+  },
+  "hebben": {
+    "past": ["had", "hadden"],
+    "perfect": ["gehad"],
+    "auxillary": ["heb", "heeft", "hebben"]
+  }
+}
