@@ -34,12 +34,12 @@ function SubjectRow({
         }}
       />
       <Button onClick={updateSubject}>✔️</Button>
-      <Button onClick={deleteSubject}>🗑️</Button>
     </TableRow>
   ) : (
     <TableRow>
       <Paper>{subject}</Paper>
       <Button onClick={handleEditButton}>✏️</Button>
+      <Button onClick={deleteSubject}>🗑️</Button>
     </TableRow>
   );
 }

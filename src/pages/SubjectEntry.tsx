@@ -25,14 +25,14 @@ function SubjectEntry({
   };
 
   const deleteSubject = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
     setSubjects(subjects.filter((subject) => subject !== editSubject));
   };
 
   const updateSubject = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    let updateIndex = subjects.findIndex((subject => subject === editSubject))
     let updatedSubjects = subjects;
-    updatedSubjects[updatedSubjects.indexOf(editSubject)] = updatedSubject;
+    updatedSubjects[updateIndex] = updatedSubject;
     setSubjects(updatedSubjects);
     setEditMode(false);
   };
